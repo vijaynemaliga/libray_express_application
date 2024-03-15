@@ -1,0 +1,23 @@
+<% if ( allbookslist.length) { %>
+    <ul>
+      <%  allbookslist.forEach(function(val) { %>
+        <li>
+          <a href="<%= val.url %>"><%= val.book.title %></a> : <%= val.imprint %> -&nbsp;
+
+          <% if (val.status === 'Available') { %>
+            <span class="text-success"><%= val.status %></span>
+          <% } else if (val.status === 'Maintenance') { %>
+            <span class="text-danger"><%= val.status %></span>
+          <% } else { %>
+            <span class="text-warning"><%= val.status %></span>
+          <% } %>
+
+          <% if (val.status !== 'Available') { %>
+            <span>(Due: <%= val.date_formatted %>)</span>
+          <% } %>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>There are no book copies in this library.</p>
+  <% } %>

@@ -1,0 +1,12 @@
+<% if (allgenrelist.length) { %>
+    <ul>
+      <% allgenrelist.forEach(function(genre) { %>
+        <li>
+          <a href="<%= genre.url %>"><%= genre.name %></a>
+          
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>There are no genre.</p>
+  <% } %>
